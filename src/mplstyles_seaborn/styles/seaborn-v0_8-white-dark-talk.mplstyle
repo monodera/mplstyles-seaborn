@@ -7,7 +7,7 @@ axes.edgecolor: .15
 axes.labelcolor: .15
 axes.labelsize: 18.0
 axes.linewidth: 1.875
-axes.prop_cycle: #001c7f, #b1400d, #12711c, #8c0800, #591e71, #592f0d, #a23582, #3c3c3c, #b8850a, #006374
+axes.prop_cycle: cycler('color', ['001c7f', 'b1400d', '12711c', '8c0800', '591e71', '592f0d', 'a23582', '3c3c3c', 'b8850a', '006374'])
 axes.titlesize: 18.0
 font.sans-serif: Source Sans 3, Arial, DejaVu Sans, Liberation Sans, Bitstream Vera Sans, sans-serif
 font.family: sans-serif
