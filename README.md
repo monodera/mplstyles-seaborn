@@ -235,11 +235,14 @@ uv run python -c "import matplotlib.pyplot as plt; plt.style.use('seaborn-v0_8-w
 ### Regenerating Styles
 
 ```bash
-# Generate all 120 style files from seaborn
-uv run python generate_styles.py
+# Generate and fix all 120 style files in one command (recommended)
+uv run python scripts/build_styles.py
 
-# Apply formatting fixes
-uv run python fix_styles.py
+# Alternative: Generate only (for development/testing)
+uv run python scripts/build_styles.py --generate-only
+
+# Alternative: Fix existing files only
+uv run python scripts/build_styles.py --fix-only
 ```
 
 ## License
