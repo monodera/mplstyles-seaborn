@@ -1,12 +1,13 @@
 # mplstyles-seaborn
 
 [![Python](https://img.shields.io/badge/python-3.11%2B-blue.svg)](https://python.org)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![License](https://img.shields.io/github/license/monodera/mplstyles-seaborn)](LICENSE)
 [![Matplotlib](https://img.shields.io/badge/matplotlib-3.5%2B-orange.svg)](https://matplotlib.org)
 [![Tests](https://github.com/monodera/mplstyles-seaborn/workflows/Tests/badge.svg)](https://github.com/monodera/mplstyles-seaborn/actions)
-[![Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen.svg)](#testing)
-[![Platform](https://img.shields.io/badge/platform-Linux%20%7C%20macOS%20%7C%20Windows-lightgrey.svg)](https://github.com/monodera/mplstyles-seaborn/actions)
-[![Code Quality](https://img.shields.io/badge/code%20quality-A+-success.svg)](#testing)
+[![codecov](https://codecov.io/gh/monodera/mplstyles-seaborn/branch/main/graph/badge.svg)](https://codecov.io/gh/monodera/mplstyles-seaborn)
+[![GitHub last commit](https://img.shields.io/github/last-commit/monodera/mplstyles-seaborn)](https://github.com/monodera/mplstyles-seaborn/commits)
+[![GitHub issues](https://img.shields.io/github/issues/monodera/mplstyles-seaborn)](https://github.com/monodera/mplstyles-seaborn/issues)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![Styles](https://img.shields.io/badge/styles-120-blue.svg)](#available-options)
 
 Matplotlib style sheets based on seaborn v0.8 themes with combinable palettes and contexts.
