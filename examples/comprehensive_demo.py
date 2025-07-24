@@ -200,8 +200,6 @@ def demonstrate_style_comparison():
     fixed_palette = "colorblind"
     fixed_context = "notebook"
     
-    fig, axes = plt.subplots(1, n_styles, figsize=(20, 5), constrained_layout=True)
-    
     # Common data
     prng = np.random.RandomState(42)
     x = np.linspace(-2, 2, 100)
@@ -212,25 +210,19 @@ def demonstrate_style_comparison():
     x_scatter = prng.randn(50) * 0.5
     y_scatter = prng.randn(50) * 0.5
     
+    # Create separate figures for each style to ensure proper styling
+    individual_figures = []
+    
     for i, style in enumerate(styles):
         # Apply current style globally
         mplstyles_seaborn.use_style(style, fixed_palette, fixed_context)
         
-        # Create temporary figure to get the proper colors and styling
-        temp_fig, temp_ax = plt.subplots(figsize=(1, 1))
-        line1, = temp_ax.plot(x, y1, linewidth=2, label='Function 1')
-        line2, = temp_ax.plot(x, y2, linewidth=2, label='Function 2')
+        # Create individual figure with the current style fully applied
+        fig, ax = plt.subplots(figsize=(4, 3))
         
-        # Extract colors and background settings
-        color1 = line1.get_color()
-        color2 = line2.get_color()
-        facecolor = temp_fig.get_facecolor()
-        plt.close(temp_fig)
-        
-        # Now plot on the main subplot with extracted styling
-        ax = axes[i]
-        ax.plot(x, y1, linewidth=2, color=color1, label='Function 1')
-        ax.plot(x, y2, linewidth=2, color=color2, label='Function 2')
+        # Plot with current style 
+        ax.plot(x, y1, linewidth=2, label='Function 1')
+        ax.plot(x, y2, linewidth=2, label='Function 2')
         ax.scatter(x_scatter, y_scatter, alpha=0.6, s=30, color='red', zorder=5)
         
         ax.set_title(f'Style: {style}', fontsize=12, fontweight='bold')
@@ -239,24 +231,76 @@ def demonstrate_style_comparison():
             ax.set_ylabel(r'$y$')
             ax.legend()
         
-        # Apply style-specific settings
-        if 'grid' in style:
-            ax.grid(True, alpha=0.3)
-        
-        # Set background color to match style
-        if style in ['dark', 'darkgrid']:
-            ax.set_facecolor('#EAEAF2')  # Light gray for dark styles
-        else:
-            ax.set_facecolor('white')
+        # Save individual figure
+        individual_path = f'{output_dir}/individual_{style}.png'
+        fig.savefig(individual_path, dpi=150, bbox_inches='tight')
+        individual_figures.append(individual_path)
+        plt.close(fig)
     
-    # Add title with fixed style configuration
+    # Create a composite image by combining individual figures
+    from PIL import Image, ImageDraw, ImageFont
+    
+    # Load all individual images
+    images = [Image.open(path) for path in individual_figures]
+    
+    # Calculate total width and max height
+    total_width = sum(img.width for img in images)
+    max_height = max(img.height for img in images)
+    
+    # Create combined image with extra space for title
+    title_space = 120
+    combined = Image.new('RGB', (total_width, max_height + title_space), 'white')
+    
+    # Paste individual images
+    x_offset = 0
+    for img in images:
+        combined.paste(img, (x_offset, title_space))  # Leave space for title
+        x_offset += img.width
+    
+    # Add title text
+    draw = ImageDraw.Draw(combined)
+    
+    # Try to use a good font, fall back to default if not available
+    try:
+        # Try common system fonts
+        title_font = ImageFont.truetype("Arial.ttf", 24)
+        subtitle_font = ImageFont.truetype("Arial.ttf", 18)
+    except:
+        try:
+            title_font = ImageFont.truetype("/System/Library/Fonts/Arial.ttf", 24)
+            subtitle_font = ImageFont.truetype("/System/Library/Fonts/Arial.ttf", 18)
+        except:
+            # Fall back to default font
+            title_font = ImageFont.load_default()
+            subtitle_font = ImageFont.load_default()
+    
+    # Add main title
     main_title = 'Style Comparison'
-    fixed_info = f'Fixed: Palette = {fixed_palette} | Context = {fixed_context}'
-    fig.suptitle(f'{main_title}\n{fixed_info}', fontsize=16, fontweight='bold')
+    title_bbox = draw.textbbox((0, 0), main_title, font=title_font)
+    title_width = title_bbox[2] - title_bbox[0]
+    title_x = (total_width - title_width) // 2
+    draw.text((title_x, 20), main_title, fill='black', font=title_font)
     
+    # Add subtitle with configuration info
+    fixed_info = f'Fixed: Palette = {fixed_palette} | Context = {fixed_context}'
+    subtitle_bbox = draw.textbbox((0, 0), fixed_info, font=subtitle_font)
+    subtitle_width = subtitle_bbox[2] - subtitle_bbox[0]
+    subtitle_x = (total_width - subtitle_width) // 2
+    draw.text((subtitle_x, 55), fixed_info, fill='gray', font=subtitle_font)
+    
+    # Save combined image
     filename = f'{output_dir}/style_comparison.png'
-    plt.savefig(filename, dpi=150, bbox_inches='tight')
-    plt.close()
+    combined.save(filename, dpi=(150, 150))
+    
+    # Clean up individual files
+    for path in individual_figures:
+        os.remove(path)
+    
+    # Close PIL images
+    for img in images:
+        img.close()
+    combined.close()
+    
     print(f"Saved: {filename}")
 
 def create_publication_ready_figure():
