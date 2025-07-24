@@ -25,7 +25,10 @@ def create_advanced_subplot_demo():
     print("Creating comprehensive subplot demonstration...")
     
     # Use a vibrant style combination
-    mplstyles_seaborn.use_style("whitegrid", "bright", "talk")
+    style_name = "whitegrid"
+    palette_name = "bright" 
+    context_name = "talk"
+    mplstyles_seaborn.use_style(style_name, palette_name, context_name)
     
     fig = plt.figure(figsize=(18, 14))
     
@@ -113,7 +116,10 @@ def create_advanced_subplot_demo():
     ax7.set_ylabel(r'$Y$')
     plt.colorbar(contour, ax=ax7, shrink=0.8)
     
-    plt.suptitle('Comprehensive Plot Demonstration', fontsize=20, fontweight='bold', y=0.95)
+    # Add title with style configuration information
+    main_title = 'Comprehensive Plot Demonstration'
+    style_info = f'Style: {style_name} | Palette: {palette_name} | Context: {context_name}'
+    plt.suptitle(f'{main_title}\n{style_info}', fontsize=16, fontweight='bold', y=0.97)
     filename = f'{output_dir}/comprehensive_demo.png'
     plt.savefig(filename, dpi=150, bbox_inches='tight')
     plt.close()
