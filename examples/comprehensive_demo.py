@@ -116,10 +116,13 @@ def create_advanced_subplot_demo():
     ax7.set_ylabel(r'$Y$')
     plt.colorbar(contour, ax=ax7, shrink=0.8)
     
-    # Add title with style configuration information
+    # Add title with style configuration information and adjust layout
     main_title = 'Comprehensive Plot Demonstration'
     style_info = f'Style: {style_name} | Palette: {palette_name} | Context: {context_name}'
-    plt.suptitle(f'{main_title}\n{style_info}', fontsize=16, fontweight='bold', y=0.97)
+    
+    # Adjust layout to make room for title
+    plt.subplots_adjust(top=0.9)
+    plt.suptitle(f'{main_title}\n{style_info}', fontsize=16, fontweight='bold', y=0.96)
     filename = f'{output_dir}/comprehensive_demo.png'
     plt.savefig(filename, dpi=150, bbox_inches='tight')
     plt.close()
@@ -137,6 +140,10 @@ def demonstrate_palette_comparison():
     palettes = mplstyles_seaborn.PALETTES
     n_palettes = len(palettes)
     
+    # Fixed style settings for palette comparison
+    fixed_style = "whitegrid"
+    fixed_context = "notebook"
+    
     # Create the main figure for combining subplots
     fig, axes = plt.subplots(2, 3, figsize=(18, 12))
     axes = axes.flatten()
@@ -147,7 +154,7 @@ def demonstrate_palette_comparison():
     
     for i, palette in enumerate(palettes):
         # Apply style globally for this palette
-        mplstyles_seaborn.use_style("whitegrid", palette, "notebook")
+        mplstyles_seaborn.use_style(fixed_style, palette, fixed_context)
         
         # Create temporary figure to get the proper colors
         temp_fig, temp_ax = plt.subplots(figsize=(1, 1))
@@ -170,7 +177,15 @@ def demonstrate_palette_comparison():
             ax.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
         ax.grid(True, alpha=0.3)
     
+    # Add title with fixed style configuration and adjust layout
+    main_title = 'Palette Comparison'
+    fixed_info = f'Fixed: Style = {fixed_style} | Context = {fixed_context}'
+    
+    # Adjust layout to make room for title
+    plt.subplots_adjust(top=0.88)
     plt.tight_layout()
+    plt.suptitle(f'{main_title}\n{fixed_info}', fontsize=16, fontweight='bold', y=0.96)
+    
     filename = f'{output_dir}/palette_comparison.png'
     plt.savefig(filename, dpi=150, bbox_inches='tight')
     plt.close()
@@ -188,6 +203,10 @@ def demonstrate_style_comparison():
     styles = mplstyles_seaborn.STYLES
     n_styles = len(styles)
     
+    # Fixed style settings for style comparison
+    fixed_palette = "colorblind"
+    fixed_context = "notebook"
+    
     fig, axes = plt.subplots(1, n_styles, figsize=(20, 4))
     
     # Common data
@@ -202,7 +221,7 @@ def demonstrate_style_comparison():
     
     for i, style in enumerate(styles):
         # Apply current style globally
-        mplstyles_seaborn.use_style(style, "colorblind", "notebook")
+        mplstyles_seaborn.use_style(style, fixed_palette, fixed_context)
         
         # Create temporary figure to get the proper colors and styling
         temp_fig, temp_ax = plt.subplots(figsize=(1, 1))
@@ -237,7 +256,15 @@ def demonstrate_style_comparison():
         else:
             ax.set_facecolor('white')
     
+    # Add title with fixed style configuration and adjust layout
+    main_title = 'Style Comparison'
+    fixed_info = f'Fixed: Palette = {fixed_palette} | Context = {fixed_context}'
+    
+    # Adjust layout to make room for title
+    plt.subplots_adjust(top=0.85)
     plt.tight_layout()
+    plt.suptitle(f'{main_title}\n{fixed_info}', fontsize=16, fontweight='bold', y=0.95)
+    
     filename = f'{output_dir}/style_comparison.png'
     plt.savefig(filename, dpi=150, bbox_inches='tight')
     plt.close()
