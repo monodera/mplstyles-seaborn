@@ -16,14 +16,16 @@ Matplotlib style sheets based on seaborn v0.8 themes with combinable palettes an
 
 ## Installation
 
+Since this package is not yet published to PyPI, install directly from GitHub:
+
 ```bash
-pip install mplstyles-seaborn
+pip install git+https://github.com/yourusername/mplstyles-seaborn.git
 ```
 
 Or with uv:
 
 ```bash
-uv add mplstyles-seaborn
+uv add git+https://github.com/yourusername/mplstyles-seaborn.git
 ```
 
 ## Quick Start
