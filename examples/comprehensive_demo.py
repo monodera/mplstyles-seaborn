@@ -139,15 +139,15 @@ def demonstrate_palette_comparison():
     n_lines = 6
     
     for i, palette in enumerate(palettes):
-        # Apply style with current palette
-        mplstyles_seaborn.use_style("whitegrid", palette, "notebook")
-        
         ax = axes[i]
         
-        # Plot multiple lines to show the full palette
-        for j in range(n_lines):
-            y = np.sin(x + j * np.pi/3) * np.exp(-j * 0.1)
-            ax.plot(x, y, linewidth=2.5, label=f'Line {j+1}')
+        # Apply style with current palette using context manager
+        style_name = f"seaborn-v0_8-whitegrid-{palette}-notebook"
+        with plt.style.context(style_name):
+            # Plot multiple lines to show the full palette
+            for j in range(n_lines):
+                y = np.sin(x + j * np.pi/3) * np.exp(-j * 0.1)
+                ax.plot(x, y, linewidth=2.5, label=f'Line {j+1}')
         
         ax.set_title(f'Palette: {palette}', fontsize=14, fontweight='bold')
         ax.set_xlabel(r'$x$')
@@ -187,15 +187,15 @@ def demonstrate_style_comparison():
     y_scatter = prng.randn(50) * 0.5
     
     for i, style in enumerate(styles):
-        # Apply current style
-        mplstyles_seaborn.use_style(style, "colorblind", "notebook")
-        
         ax = axes[i]
         
-        # Plot lines and scatter
-        ax.plot(x, y1, linewidth=2, label='Function 1')
-        ax.plot(x, y2, linewidth=2, label='Function 2')
-        ax.scatter(x_scatter, y_scatter, alpha=0.6, s=30, color='red', zorder=5)
+        # Apply current style using context manager
+        style_name = f"seaborn-v0_8-{style}-colorblind-notebook"
+        with plt.style.context(style_name):
+            # Plot lines and scatter
+            ax.plot(x, y1, linewidth=2, label='Function 1')
+            ax.plot(x, y2, linewidth=2, label='Function 2')
+            ax.scatter(x_scatter, y_scatter, alpha=0.6, s=30, color='red', zorder=5)
         
         ax.set_title(f'Style: {style}', fontsize=12, fontweight='bold')
         ax.set_xlabel(r'$x$')
