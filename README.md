@@ -7,7 +7,7 @@
 [![codecov](https://codecov.io/gh/monodera/mplstyles-seaborn/branch/main/graph/badge.svg)](https://codecov.io/gh/monodera/mplstyles-seaborn)
 [![GitHub last commit](https://img.shields.io/github/last-commit/monodera/mplstyles-seaborn)](https://github.com/monodera/mplstyles-seaborn/commits)
 [![GitHub issues](https://img.shields.io/github/issues/monodera/mplstyles-seaborn)](https://github.com/monodera/mplstyles-seaborn/issues)
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![Type hints](https://img.shields.io/badge/type%20hints-included-brightgreen.svg)](#api-reference)
 [![Styles](https://img.shields.io/badge/styles-120-blue.svg)](#available-options)
 
 Matplotlib style sheets based on seaborn v0.8 themes with combinable palettes and contexts.
