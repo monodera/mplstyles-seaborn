@@ -43,3 +43,12 @@ uv.lock
 # OS
 .DS_Store
 Thumbs.db
+
+# Claude settings
+.claude/
+
+# Development files
+style_sheets_reference.py
+
+# Coverage files
+.coverage
