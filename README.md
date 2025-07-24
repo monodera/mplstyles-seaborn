@@ -109,6 +109,12 @@ for style in styles[:5]:
 
 ## Examples
 
+For comprehensive visual examples, see our **[📸 Example Galleries](examples/)**:
+
+- **[Basic Usage Gallery](examples/basic_usage_gallery.md)** - Fundamental usage patterns and plot types
+- **[Style Comparison Gallery](examples/style_comparison_gallery.md)** - All 120 style combinations visualized  
+- **[Comprehensive Demo Gallery](examples/comprehensive_demo_gallery.md)** - Advanced plot types and publication-ready figures
+
 ### Basic Line Plot
 
 ```python
@@ -226,7 +232,9 @@ uv sync
 uv run python -c "import mplstyles_seaborn; print(len(mplstyles_seaborn.list_available_styles()))"
 
 # Run examples
-uv run python example.py
+uv run python examples/basic_usage.py
+uv run python examples/style_comparison.py
+uv run python examples/comprehensive_demo.py
 
 # Test specific style
 uv run python -c "import matplotlib.pyplot as plt; plt.style.use('seaborn-v0_8-whitegrid-colorblind-talk')"
