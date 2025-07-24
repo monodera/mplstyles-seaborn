@@ -1,5 +1,9 @@
 # mplstyles-seaborn
 
+![Python](https://img.shields.io/badge/python-3.11%2B-blue.svg)
+![License](https://img.shields.io/badge/license-MIT-green.svg)
+![Matplotlib](https://img.shields.io/badge/matplotlib-3.5%2B-orange.svg)
+
 Matplotlib style sheets based on seaborn v0.8 themes with combinable palettes and contexts.
 
 ## Overview
