@@ -1,16 +1,18 @@
 # Matplotlib style sheet
 # Generated from seaborn configuration: {'style': 'ticks', 'palette': 'colorblind', 'context': 'talk'}
-# Total parameters changed: 34
+# Total parameters changed: 40
 
 axes.axisbelow: True
 axes.edgecolor: .15
+axes.facecolor: white
+axes.grid: False
 axes.labelcolor: .15
 axes.labelsize: 18.0
 axes.linewidth: 1.875
 axes.prop_cycle: cycler('color', ['0173b2', 'de8f05', '029e73', 'd55e00', 'cc78bc', 'ca9161', 'fbafe4', '949494', 'ece133', '56b4e9'])
 axes.titlesize: 18.0
-font.sans-serif: Source Sans 3, Arial, DejaVu Sans, Liberation Sans, Bitstream Vera Sans, sans-serif
 font.family: sans-serif
+font.sans-serif: Source Sans 3, Arial, DejaVu Sans, Liberation Sans, Bitstream Vera Sans, sans-serif
 font.size: 18.0
 grid.color: .8
 grid.linewidth: 1.5
@@ -24,7 +26,9 @@ mathtext.fallback: stixsans
 patch.edgecolor: w
 patch.force_edgecolor: True
 patch.linewidth: 1.5
+pdf.fonttype: 42
 text.color: .15
+xtick.bottom: True
 xtick.color: .15
 xtick.labelsize: 16.5
 xtick.major.size: 9.0
@@ -33,6 +37,7 @@ xtick.minor.size: 6.0
 xtick.minor.width: 1.5
 ytick.color: .15
 ytick.labelsize: 16.5
+ytick.left: True
 ytick.major.size: 9.0
 ytick.major.width: 1.875
 ytick.minor.size: 6.0

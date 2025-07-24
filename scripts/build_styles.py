@@ -62,6 +62,17 @@ def generate_style_file(style_config, output_path):
             if key == "image.cmap" and value == "rocket":
                 continue  # rocket colormap doesn't exist in matplotlib
             changes[key] = value
+    
+    # Force include essential style parameters even if they match defaults
+    essential_params = [
+        'axes.facecolor',
+        'axes.grid', 
+        'xtick.bottom',
+        'ytick.left'
+    ]
+    for param in essential_params:
+        if param in current_rcparams and param not in changes:
+            changes[param] = current_rcparams[param]
 
     # Add custom font settings
     changes["mathtext.default"] = "regular"
@@ -140,7 +151,12 @@ def fix_existing_styles(styles_dir):
             # Fix facecolor - ensure hex colors are unquoted and without # prefix for matplotlib
             elif line.startswith("axes.facecolor:"):
                 color_part = line.split(":", 1)[1].strip()
-                color_part = color_part.strip("'\"").lstrip('#')  # Remove quotes and # prefix
+                # Don't modify colors that are already correct (like 'white' or hex without #)
+                # Only remove quotes and # prefix if present
+                if color_part.startswith("'") or color_part.startswith('"'):
+                    color_part = color_part.strip("'\"")
+                if color_part.startswith('#'):
+                    color_part = color_part.lstrip('#')
                 fixed_line = f"axes.facecolor: {color_part}"
                 fixed_lines.append(fixed_line)
 
