@@ -125,7 +125,7 @@ fig, ax = plt.subplots(figsize=(10, 6))
 
 ax.plot(x, np.sin(x), label='sin(x)', linewidth=2)
 ax.plot(x, np.cos(x), label='cos(x)', linewidth=2)
-ax.plot(x, np.sin(x + np.pi/4), label='sin(x + À/4)', linewidth=2)
+ax.plot(x, np.sin(x + np.pi/4), label='sin(x + pi/4)', linewidth=2)
 
 ax.set_title('Trigonometric Functions')
 ax.set_xlabel('x')
@@ -207,9 +207,9 @@ Register all styles with matplotlib (called automatically on import).
 
 ### Requirements
 
-- Python e3.12
-- matplotlib e3.5
-- seaborn e0.11 (for development/generation only)
+- Python >=3.11
+- matplotlib >=3.5
+- seaborn >=0.11 (for development/generation only)
 
 ### Setup
 
