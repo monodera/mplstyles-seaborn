@@ -9,6 +9,7 @@ dependencies = ["matplotlib>=3.5"]
 
 [project.optional-dependencies]
 dev = ["seaborn>=0.11"]
+test = ["pytest>=7.0", "pytest-cov>=4.0"]
 
 [tool.setuptools.packages.find]
 where = ["src"]
@@ -19,3 +20,29 @@ mplstyles_seaborn = ["styles/*.mplstyle", "py.typed"]
 [build-system]
 requires = ["setuptools>=61"]
 build-backend = "setuptools.build_meta"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = [
+    "--strict-markers",
+    "--strict-config",
+    "-ra",
+]
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+]
+
+[tool.coverage.run]
+source = ["src/mplstyles_seaborn"]
+omit = ["tests/*"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+]
