@@ -1,0 +1,27 @@
+[project]
+name = "mplstyles-seaborn"
+version = "0.1.0"
+description = "Matplotlib style sheets based on seaborn-v0_8-dark theme with combinable palettes and contexts"
+readme = "README.md"
+authors = [
+    { name = "Masato Onodera", email = "masato.onodera@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "matplotlib>=3.5"
+]
+
+[project.optional-dependencies]
+dev = [
+    "seaborn>=0.11"
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+mplstyles_seaborn = ["styles/*.mplstyle", "py.typed"]
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
