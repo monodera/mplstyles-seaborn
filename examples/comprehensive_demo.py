@@ -30,7 +30,7 @@ def create_advanced_subplot_demo():
     context_name = "talk"
     mplstyles_seaborn.use_style(style_name, palette_name, context_name)
     
-    fig = plt.figure(figsize=(18, 14))
+    fig = plt.figure(figsize=(18, 14), constrained_layout=True)
     
     # Create a complex subplot layout with better spacing
     gs = fig.add_gridspec(3, 3, hspace=0.4, wspace=0.4)
@@ -116,13 +116,10 @@ def create_advanced_subplot_demo():
     ax7.set_ylabel(r'$Y$')
     plt.colorbar(contour, ax=ax7, shrink=0.8)
     
-    # Add title with style configuration information and adjust layout
+    # Add title with style configuration information
     main_title = 'Comprehensive Plot Demonstration'
     style_info = f'Style: {style_name} | Palette: {palette_name} | Context: {context_name}'
-    
-    # Adjust layout to make room for title
-    plt.subplots_adjust(top=0.9)
-    plt.suptitle(f'{main_title}\n{style_info}', fontsize=16, fontweight='bold', y=0.96)
+    fig.suptitle(f'{main_title}\n{style_info}', fontsize=16, fontweight='bold')
     filename = f'{output_dir}/comprehensive_demo.png'
     plt.savefig(filename, dpi=150, bbox_inches='tight')
     plt.close()
@@ -145,7 +142,7 @@ def demonstrate_palette_comparison():
     fixed_context = "notebook"
     
     # Create the main figure for combining subplots
-    fig, axes = plt.subplots(2, 3, figsize=(18, 12))
+    fig, axes = plt.subplots(2, 3, figsize=(18, 12), constrained_layout=True)
     axes = axes.flatten()
     
     # Common data for all plots
@@ -177,14 +174,10 @@ def demonstrate_palette_comparison():
             ax.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
         ax.grid(True, alpha=0.3)
     
-    # Add title with fixed style configuration and adjust layout
+    # Add title with fixed style configuration
     main_title = 'Palette Comparison'
     fixed_info = f'Fixed: Style = {fixed_style} | Context = {fixed_context}'
-    
-    # Adjust layout to make room for title
-    plt.subplots_adjust(top=0.88)
-    plt.tight_layout()
-    plt.suptitle(f'{main_title}\n{fixed_info}', fontsize=16, fontweight='bold', y=0.96)
+    fig.suptitle(f'{main_title}\n{fixed_info}', fontsize=16, fontweight='bold')
     
     filename = f'{output_dir}/palette_comparison.png'
     plt.savefig(filename, dpi=150, bbox_inches='tight')
@@ -207,7 +200,7 @@ def demonstrate_style_comparison():
     fixed_palette = "colorblind"
     fixed_context = "notebook"
     
-    fig, axes = plt.subplots(1, n_styles, figsize=(20, 4))
+    fig, axes = plt.subplots(1, n_styles, figsize=(20, 5), constrained_layout=True)
     
     # Common data
     prng = np.random.RandomState(42)
@@ -256,14 +249,10 @@ def demonstrate_style_comparison():
         else:
             ax.set_facecolor('white')
     
-    # Add title with fixed style configuration and adjust layout
+    # Add title with fixed style configuration
     main_title = 'Style Comparison'
     fixed_info = f'Fixed: Palette = {fixed_palette} | Context = {fixed_context}'
-    
-    # Adjust layout to make room for title
-    plt.subplots_adjust(top=0.85)
-    plt.tight_layout()
-    plt.suptitle(f'{main_title}\n{fixed_info}', fontsize=16, fontweight='bold', y=0.95)
+    fig.suptitle(f'{main_title}\n{fixed_info}', fontsize=16, fontweight='bold')
     
     filename = f'{output_dir}/style_comparison.png'
     plt.savefig(filename, dpi=150, bbox_inches='tight')
