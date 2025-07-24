@@ -115,6 +115,19 @@ For comprehensive visual examples, see our **[📸 Example Galleries](examples/)
 - **[Style Comparison Gallery](examples/style_comparison_gallery.md)** - All 120 style combinations visualized  
 - **[Comprehensive Demo Gallery](examples/comprehensive_demo_gallery.md)** - Advanced plot types and publication-ready figures
 
+Run the examples with:
+
+```bash
+# Basic usage examples
+uv run python examples/basic_usage.py
+
+# Generate all 120 style combination comparisons  
+uv run python examples/style_comparison.py
+
+# Comprehensive demonstration with 7 different plot types
+uv run python examples/comprehensive_demo.py
+```
+
 ### Basic Line Plot
 
 ```python
