@@ -14,6 +14,16 @@ Matplotlib style sheets based on seaborn v0.8 themes with combinable palettes an
 - **Multiple usage methods**: Convenience functions or direct matplotlib integration
 - **Type hints**: Full type annotation support
 
+![Comprehensive Plot Demonstration](examples/comprehensive_demo_output/comprehensive_demo.png)
+
+## Example Galleries
+
+For comprehensive visual examples, see our **[📸 Example Galleries](examples/)**:
+
+- **[Basic Usage Gallery](examples/basic_usage_gallery.md)** - Fundamental usage patterns and plot types
+- **[Style Comparison Gallery](examples/style_comparison_gallery.md)** - All 120 style combinations visualized  
+- **[Comprehensive Demo Gallery](examples/comprehensive_demo_gallery.md)** - Advanced plot types and publication-ready figures
+
 ## Installation
 
 Since this package is not yet published to PyPI, install directly from GitHub:
@@ -108,14 +118,6 @@ print(f"Available styles: {len(styles)}")
 for style in styles[:5]:
     print(style)
 ```
-
-## Examples
-
-For comprehensive visual examples, see our **[📸 Example Galleries](examples/)**:
-
-- **[Basic Usage Gallery](examples/basic_usage_gallery.md)** - Fundamental usage patterns and plot types
-- **[Style Comparison Gallery](examples/style_comparison_gallery.md)** - All 120 style combinations visualized  
-- **[Comprehensive Demo Gallery](examples/comprehensive_demo_gallery.md)** - Advanced plot types and publication-ready figures
 
 Run the examples with:
 
