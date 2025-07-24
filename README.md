@@ -2,7 +2,7 @@
 
 [![Python](https://img.shields.io/badge/python-3.11%2B-blue.svg)](https://python.org)
 [![License](https://img.shields.io/github/license/monodera/mplstyles-seaborn)](LICENSE)
-[![Matplotlib](https://img.shields.io/badge/matplotlib-3.5%2B-orange.svg)](https://matplotlib.org)
+[![Matplotlib](https://img.shields.io/badge/matplotlib-3.8%2B-orange.svg)](https://matplotlib.org)
 [![Tests](https://github.com/monodera/mplstyles-seaborn/workflows/Tests/badge.svg)](https://github.com/monodera/mplstyles-seaborn/actions)
 [![codecov](https://codecov.io/gh/monodera/mplstyles-seaborn/branch/main/graph/badge.svg)](https://codecov.io/gh/monodera/mplstyles-seaborn)
 [![GitHub last commit](https://img.shields.io/github/last-commit/monodera/mplstyles-seaborn)](https://github.com/monodera/mplstyles-seaborn/commits)

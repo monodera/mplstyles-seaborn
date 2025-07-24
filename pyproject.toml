@@ -5,7 +5,7 @@ description = "Matplotlib style sheets based on seaborn-v0_8-dark theme with com
 readme = "README.md"
 authors = [{ name = "Masato Onodera", email = "masato.onodera@gmail.com" }]
 requires-python = ">=3.11"
-dependencies = ["matplotlib>=3.5"]
+dependencies = ["matplotlib>=3.8"]
 
 [project.optional-dependencies]
 dev = ["seaborn>=0.11"]
