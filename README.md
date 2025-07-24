@@ -282,6 +282,10 @@ This project is licensed under the MIT License.
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
+## Development Support
+
+This project was developed with assistance from [Claude Code](https://claude.ai/code), Anthropic's AI-powered coding assistant.
+
 ## Related Projects
 
 - [seaborn](https://seaborn.pydata.org/) - Statistical data visualization library
