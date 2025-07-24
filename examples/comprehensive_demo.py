@@ -27,10 +27,10 @@ def create_advanced_subplot_demo():
     # Use a vibrant style combination
     mplstyles_seaborn.use_style("whitegrid", "bright", "talk")
     
-    fig = plt.figure(figsize=(16, 12))
+    fig = plt.figure(figsize=(18, 14))
     
-    # Create a complex subplot layout
-    gs = fig.add_gridspec(3, 3, hspace=0.3, wspace=0.3)
+    # Create a complex subplot layout with better spacing
+    gs = fig.add_gridspec(3, 3, hspace=0.4, wspace=0.4)
     
     # 1. Line plot with multiple series
     ax1 = fig.add_subplot(gs[0, :2])
@@ -113,7 +113,7 @@ def create_advanced_subplot_demo():
     ax7.set_ylabel(r'$Y$')
     plt.colorbar(contour, ax=ax7, shrink=0.8)
     
-    plt.suptitle('Comprehensive Plot Demonstration', fontsize=20, fontweight='bold', y=0.98)
+    plt.suptitle('Comprehensive Plot Demonstration', fontsize=20, fontweight='bold', y=0.95)
     filename = f'{output_dir}/comprehensive_demo.png'
     plt.savefig(filename, dpi=150, bbox_inches='tight')
     plt.close()
