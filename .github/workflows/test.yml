@@ -71,7 +71,7 @@ jobs:
 
     - name: Test style application
       run: |
-        uv run python -c "import matplotlib.pyplot as plt; plt.style.use('seaborn-v0_8-whitegrid-colorblind-talk'); print('Style applied successfully')"
+        uv run python -c "import mplstyles_seaborn; import matplotlib.pyplot as plt; plt.style.use('seaborn-v0_8-whitegrid-colorblind-talk'); print('Style applied successfully')"
 
     - name: Verify all styles are loadable
       run: |
