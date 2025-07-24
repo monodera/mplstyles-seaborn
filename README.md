@@ -284,7 +284,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## Development Support
 
-This project was developed with assistance from [Claude Code](https://claude.ai/code), Anthropic's AI-powered coding assistant.
+This project was primarily developed using [Claude Code](https://claude.ai/code), Anthropic's AI-powered coding assistant.
 
 ## Related Projects
 
