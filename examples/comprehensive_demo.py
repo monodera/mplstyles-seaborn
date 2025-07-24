@@ -32,8 +32,8 @@ def create_advanced_subplot_demo():
     
     fig = plt.figure(figsize=(18, 14), constrained_layout=True)
     
-    # Create a complex subplot layout with better spacing
-    gs = fig.add_gridspec(3, 3, hspace=0.4, wspace=0.4)
+    # Create a complex subplot layout
+    gs = fig.add_gridspec(3, 3)
     
     # 1. Line plot with multiple series
     ax1 = fig.add_subplot(gs[0, :2])
