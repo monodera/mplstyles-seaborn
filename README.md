@@ -1,8 +1,14 @@
 # mplstyles-seaborn
 
-![Python](https://img.shields.io/badge/python-3.11%2B-blue.svg)
-![License](https://img.shields.io/badge/license-MIT-green.svg)
-![Matplotlib](https://img.shields.io/badge/matplotlib-3.5%2B-orange.svg)
+[![Python](https://img.shields.io/badge/python-3.11%2B-blue.svg)](https://python.org)
+[![License](https://img.shields.io/github/license/monodera/mplstyles-seaborn)](LICENSE)
+[![Matplotlib](https://img.shields.io/badge/matplotlib-3.8%2B-orange.svg)](https://matplotlib.org)
+[![Tests](https://github.com/monodera/mplstyles-seaborn/workflows/Tests/badge.svg)](https://github.com/monodera/mplstyles-seaborn/actions)
+[![codecov](https://codecov.io/gh/monodera/mplstyles-seaborn/branch/main/graph/badge.svg)](https://codecov.io/gh/monodera/mplstyles-seaborn)
+[![GitHub last commit](https://img.shields.io/github/last-commit/monodera/mplstyles-seaborn)](https://github.com/monodera/mplstyles-seaborn/commits)
+[![GitHub issues](https://img.shields.io/github/issues/monodera/mplstyles-seaborn)](https://github.com/monodera/mplstyles-seaborn/issues)
+[![Type hints](https://img.shields.io/badge/type%20hints-included-brightgreen.svg)](#api-reference)
+[![Styles](https://img.shields.io/badge/styles-120-blue.svg)](#available-options)
 
 Matplotlib style sheets based on seaborn v0.8 themes with combinable palettes and contexts.
 
@@ -248,17 +254,52 @@ uv sync
 
 ### Testing
 
+This project includes comprehensive tests covering:
+- Unit tests for all API functions
+- Integration tests with matplotlib
+- Validation tests for all 120 style files
+- Error handling and edge cases
+- Performance benchmarks
+
+#### Running Tests
+
 ```bash
-# Test package import
+# Install test dependencies
+uv sync --extra test
+
+# Run all tests
+uv run pytest
+
+# Run tests with coverage
+uv run pytest --cov=src/mplstyles_seaborn --cov-report=term-missing
+
+# Run specific test categories
+uv run pytest tests/test_api.py          # API function tests
+uv run pytest tests/test_integration.py # Matplotlib integration tests
+uv run pytest tests/test_styles.py      # Style file validation tests
+uv run pytest tests/test_errors.py      # Error handling tests
+
+# Run performance tests (marked as slow)
+uv run pytest tests/test_performance.py -m "not slow"  # Fast performance tests
+uv run pytest tests/test_performance.py                # All performance tests
+
+# Run with verbose output
+uv run pytest -v
+```
+
+#### Manual Testing
+
+```bash
+# Test package import and basic functionality
 uv run python -c "import mplstyles_seaborn; print(len(mplstyles_seaborn.list_available_styles()))"
 
-# Run examples
+# Test specific style application
+uv run python -c "import matplotlib.pyplot as plt; plt.style.use('seaborn-v0_8-whitegrid-colorblind-talk')"
+
+# Run example scripts
 uv run python examples/basic_usage.py
 uv run python examples/style_comparison.py
 uv run python examples/comprehensive_demo.py
-
-# Test specific style
-uv run python -c "import matplotlib.pyplot as plt; plt.style.use('seaborn-v0_8-whitegrid-colorblind-talk')"
 ```
 
 ### Regenerating Styles
