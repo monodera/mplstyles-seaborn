@@ -4,7 +4,7 @@
 [![License](https://img.shields.io/github/license/monodera/mplstyles-seaborn)](LICENSE)
 [![Matplotlib](https://img.shields.io/badge/matplotlib-3.5%2B-orange.svg)](https://matplotlib.org)
 [![Tests](https://github.com/monodera/mplstyles-seaborn/workflows/Tests/badge.svg)](https://github.com/monodera/mplstyles-seaborn/actions)
-[![codecov](https://codecov.io/gh/monodera/mplstyles-seaborn/branch/main/graph/badge.svg)](https://codecov.io/gh/monodera/mplstyles-seaborn)
+[![Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen.svg)](#testing)
 [![GitHub last commit](https://img.shields.io/github/last-commit/monodera/mplstyles-seaborn)](https://github.com/monodera/mplstyles-seaborn/commits)
 [![GitHub issues](https://img.shields.io/github/issues/monodera/mplstyles-seaborn)](https://github.com/monodera/mplstyles-seaborn/issues)
 [![Type hints](https://img.shields.io/badge/type%20hints-included-brightgreen.svg)](#api-reference)
