@@ -33,13 +33,6 @@ ENV/
 *.swo
 
 # Development files (not included in package)
-example*.py
-example*.png
-example*.pdf
-generate_styles.py
-fix_styles.py
-research_seaborn_styles.py
-CLAUDE.md
 
 # Lock files
 uv.lock
