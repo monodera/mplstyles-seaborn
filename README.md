@@ -1,8 +1,13 @@
 # mplstyles-seaborn
 
-![Python](https://img.shields.io/badge/python-3.11%2B-blue.svg)
-![License](https://img.shields.io/badge/license-MIT-green.svg)
-![Matplotlib](https://img.shields.io/badge/matplotlib-3.5%2B-orange.svg)
+[![Python](https://img.shields.io/badge/python-3.11%2B-blue.svg)](https://python.org)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![Matplotlib](https://img.shields.io/badge/matplotlib-3.5%2B-orange.svg)](https://matplotlib.org)
+[![Tests](https://github.com/monodera/mplstyles-seaborn/workflows/Tests/badge.svg)](https://github.com/monodera/mplstyles-seaborn/actions)
+[![Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen.svg)](#testing)
+[![Platform](https://img.shields.io/badge/platform-Linux%20%7C%20macOS%20%7C%20Windows-lightgrey.svg)](https://github.com/monodera/mplstyles-seaborn/actions)
+[![Code Quality](https://img.shields.io/badge/code%20quality-A+-success.svg)](#testing)
+[![Styles](https://img.shields.io/badge/styles-120-blue.svg)](#available-options)
 
 Matplotlib style sheets based on seaborn v0.8 themes with combinable palettes and contexts.
 
