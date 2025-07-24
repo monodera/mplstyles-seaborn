@@ -8,7 +8,7 @@ Matplotlib style sheets based on seaborn v0.8 themes with combinable palettes an
 
 ## Overview
 
-`mplstyles-seaborn` provides 120 pre-generated matplotlib style sheets that replicate seaborn v0.8 styling without requiring seaborn as a dependency. The package covers all combinations of seaborn's styles, color palettes, and contexts.
+While matplotlib includes built-in seaborn v0.8 style sheets, they offer only a limited set of predefined combinations. This package extends matplotlib's seaborn styling without requiring seaborn as a dependency, providing all 120 possible combinations of seaborn's styles, color palettes, and contexts.
 
 ## Features
 
