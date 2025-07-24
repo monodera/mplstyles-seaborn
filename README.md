@@ -1,10 +1,14 @@
 # mplstyles-seaborn
 
+![Python](https://img.shields.io/badge/python-3.11%2B-blue.svg)
+![License](https://img.shields.io/badge/license-MIT-green.svg)
+![Matplotlib](https://img.shields.io/badge/matplotlib-3.5%2B-orange.svg)
+
 Matplotlib style sheets based on seaborn v0.8 themes with combinable palettes and contexts.
 
 ## Overview
 
-`mplstyles-seaborn` provides 120 pre-generated matplotlib style sheets that replicate seaborn v0.8 styling without requiring seaborn as a dependency. The package covers all combinations of seaborn's styles, color palettes, and contexts.
+While matplotlib includes built-in seaborn v0.8 style sheets, they offer only a limited set of predefined combinations. This package extends matplotlib's seaborn styling without requiring seaborn as a dependency, providing all 120 possible combinations of seaborn's styles, color palettes, and contexts.
 
 ## Features
 
@@ -277,6 +281,10 @@ This project is licensed under the MIT License.
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
+
+## Development Support
+
+This project was primarily developed using [Claude Code](https://claude.ai/code), Anthropic's AI-powered coding assistant.
 
 ## Related Projects
 
