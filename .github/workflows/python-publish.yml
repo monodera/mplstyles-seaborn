@@ -21,6 +21,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Fetch full history for setuptools-scm to work correctly
 
       - uses: actions/setup-python@v5
         with:
