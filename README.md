@@ -36,16 +36,30 @@ For comprehensive visual examples, see our **[📸 Example Galleries](examples/)
 
 ## Installation
 
-Since this package is not yet published to PyPI, install directly from GitHub:
+Install from PyPI:
 
 ```bash
-pip install git+https://github.com/yourusername/mplstyles-seaborn.git
+pip install mplstyles-seaborn
 ```
 
 Or with uv:
 
 ```bash
-uv add git+https://github.com/yourusername/mplstyles-seaborn.git
+uv add mplstyles-seaborn
+```
+
+### Development Installation
+
+For development, install directly from GitHub:
+
+```bash
+pip install git+https://github.com/monodera/mplstyles-seaborn.git
+```
+
+Or with uv:
+
+```bash
+uv add git+https://github.com/monodera/mplstyles-seaborn.git
 ```
 
 ## Quick Start
@@ -247,7 +261,7 @@ Register all styles with matplotlib (called automatically on import).
 ### Setup
 
 ```bash
-git clone https://github.com/yourusername/mplstyles-seaborn.git
+git clone https://github.com/monodera/mplstyles-seaborn.git
 cd mplstyles-seaborn
 uv sync
 ```
