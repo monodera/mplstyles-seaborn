@@ -31,7 +31,7 @@ from typing import Literal
 
 try:
     from ._version import version as __version__
-except ImportError:
+except ImportError:  # pragma: no cover
     # Fallback for development or if setuptools-scm is not available
     __version__ = "0.0.0+unknown"
 
