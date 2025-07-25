@@ -29,7 +29,11 @@ import matplotlib.pyplot as plt
 from pathlib import Path
 from typing import Literal
 
-__version__ = "0.1.0"
+try:
+    from ._version import version as __version__
+except ImportError:  # pragma: no cover
+    # Fallback for development or if setuptools-scm is not available
+    __version__ = "0.0.0+unknown"
 
 # Get the styles directory
 _STYLES_DIR = Path(__file__).parent / "styles"
