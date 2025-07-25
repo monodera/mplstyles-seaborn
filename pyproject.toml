@@ -61,7 +61,7 @@ markers = [
 
 [tool.coverage.run]
 source = ["src/mplstyles_seaborn"]
-omit = ["tests/*"]
+omit = ["tests/*", "src/mplstyles_seaborn/_version.py"]
 
 [tool.coverage.report]
 exclude_lines = [
