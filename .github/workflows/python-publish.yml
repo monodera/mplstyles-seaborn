@@ -22,6 +22,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          ref: ${{ github.ref }}  # Checkout the exact tag that triggered the release
           fetch-depth: 0  # Fetch full history for setuptools-scm to work correctly
           fetch-tags: true  # Fetch all tags for proper version detection
 
