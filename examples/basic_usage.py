@@ -106,6 +106,52 @@ def example_scatter_plot():
     plt.close()
     print(f"Saved: {filename}")
 
+def example_font_scale_and_rc():
+    """Example 4: Demonstrating font_scale and rc parameters (like seaborn.set_theme)."""
+    import os
+    
+    output_dir = "examples/basic_usage_output"
+    os.makedirs(output_dir, exist_ok=True)
+    
+    print("\n=== Example 4: font_scale and rc parameters ===")
+    
+    # Custom rc parameters to remove top and right spines (like seaborn)
+    custom_rc = {
+        'axes.spines.right': False,
+        'axes.spines.top': False,
+        'grid.alpha': 0.3
+    }
+    
+    # Use style with larger font scale and custom rcParams
+    mplstyles_seaborn.use_style("darkgrid", "colorblind", "talk", 
+                               font_scale=1.3, rc=custom_rc)
+    
+    x, y1, y2, y3 = create_sample_data()
+    
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 6))
+    
+    # Left plot: Line plot
+    ax1.plot(x, y1, label=r"$\sin(x)$", linewidth=2.5)
+    ax1.plot(x, y2, label=r"$\cos(x)$", linewidth=2.5)
+    ax1.set_title("With Large Fonts & Custom RC")
+    ax1.set_xlabel(r"$x$")
+    ax1.set_ylabel(r"$y$")
+    ax1.legend()
+    
+    # Right plot: Bar plot
+    categories = ['A', 'B', 'C', 'D', 'E']
+    values = [23, 45, 56, 78, 32]
+    ax2.bar(categories, values)
+    ax2.set_title("Bar Chart Example")
+    ax2.set_xlabel("Categories")
+    ax2.set_ylabel("Values")
+    
+    plt.tight_layout()
+    filename = f"{output_dir}/basic_font_scale_rc.png"
+    plt.savefig(filename, dpi=150, bbox_inches="tight")
+    plt.close()
+    print(f"Saved: {filename}")
+
 def show_available_styles():
     """Display information about available styles."""
     print("\n=== Available Style Information ===")
@@ -127,5 +173,6 @@ if __name__ == "__main__":
     example_convenience_function()
     example_direct_style_use()
     example_scatter_plot()
+    example_font_scale_and_rc()
     
     print("\n✓ All basic examples completed successfully!")

@@ -92,6 +92,85 @@ class TestUseStyle:
         for style, palette, context in sample_combinations:
             # Should not raise an exception
             mplstyles_seaborn.use_style(style, palette, context)
+    
+    def test_use_style_with_font_scale_default(self):
+        """Test use_style with default font_scale parameter."""
+        import matplotlib as mpl
+        
+        # Get baseline font size with font_scale=1.0
+        mplstyles_seaborn.use_style(font_scale=1.0)
+        baseline_fontsize = mpl.rcParams['font.size']
+        
+        # Use with default font_scale (1.5)
+        mplstyles_seaborn.use_style()
+        expected_size = baseline_fontsize * 1.5
+        assert abs(mpl.rcParams['font.size'] - expected_size) < 0.1
+    
+    def test_use_style_with_font_scale_scaling(self):
+        """Test use_style with font_scale parameter scaling."""
+        import matplotlib as mpl
+        
+        # Test with font_scale=1.5
+        mplstyles_seaborn.use_style(font_scale=1.5)
+        scaled_fontsize = mpl.rcParams['font.size']
+        
+        # Reset and get baseline
+        mplstyles_seaborn.use_style(font_scale=1.0)
+        baseline_fontsize = mpl.rcParams['font.size']
+        
+        # Scale again and verify
+        mplstyles_seaborn.use_style(font_scale=1.5)
+        expected_size = baseline_fontsize * 1.5
+        assert abs(mpl.rcParams['font.size'] - expected_size) < 0.1
+    
+    def test_use_style_with_font_scale_invalid(self):
+        """Test use_style raises ValueError for invalid font_scale."""
+        with pytest.raises(ValueError, match="font_scale must be a positive number"):
+            mplstyles_seaborn.use_style(font_scale=0)
+        
+        with pytest.raises(ValueError, match="font_scale must be a positive number"):
+            mplstyles_seaborn.use_style(font_scale=-1.0)
+        
+        with pytest.raises(ValueError, match="font_scale must be a positive number"):
+            mplstyles_seaborn.use_style(font_scale="invalid")
+    
+    def test_use_style_with_rc_parameter(self):
+        """Test use_style with rc parameter."""
+        import matplotlib as mpl
+        
+        # Test with custom rc parameters
+        custom_rc = {
+            'axes.spines.right': False,
+            'axes.spines.top': False,
+            'grid.linewidth': 2.0
+        }
+        
+        mplstyles_seaborn.use_style(rc=custom_rc)
+        
+        assert mpl.rcParams['axes.spines.right'] == False
+        assert mpl.rcParams['axes.spines.top'] == False
+        assert mpl.rcParams['grid.linewidth'] == 2.0
+    
+    def test_use_style_with_rc_none(self):
+        """Test use_style with rc=None (default)."""
+        # Should not raise an exception
+        mplstyles_seaborn.use_style(rc=None)
+    
+    def test_use_style_with_empty_rc(self):
+        """Test use_style with empty rc dictionary."""
+        # Should not raise an exception
+        mplstyles_seaborn.use_style(rc={})
+    
+    def test_use_style_with_font_scale_and_rc(self):
+        """Test use_style with both font_scale and rc parameters."""
+        import matplotlib as mpl
+        
+        custom_rc = {'grid.alpha': 0.5}
+        mplstyles_seaborn.use_style(font_scale=1.2, rc=custom_rc)
+        
+        # Both should be applied
+        assert mpl.rcParams['grid.alpha'] == 0.5
+        # Font scaling is harder to test precisely due to cumulative effects
 
 
 class TestRegisterStyles:
