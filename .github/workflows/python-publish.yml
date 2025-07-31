@@ -40,6 +40,11 @@ jobs:
           uv sync --extra test --group dev
           uv run pytest tests/ --cov=src/mplstyles_seaborn --cov-report=term-missing
 
+      - name: Clean repository for version detection
+        run: |
+          git clean -fxd
+          git reset --hard HEAD
+
       - name: Show version information
         run: |
           echo "Git describe: $(git describe --tags --always --dirty)"
