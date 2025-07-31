@@ -279,4 +279,4 @@ class TestErrorMessages:
             except FileNotFoundError as e:
                 error_msg = str(e)
                 assert 'Style file not found' in error_msg
-                assert 'seaborn-v0_8-darkgrid-dark-notebook' in error_msg
+                assert 'seaborn-v0_8-ticks-colorblind-talk' in error_msg
