@@ -74,3 +74,6 @@ exclude_lines = [
 
 [tool.setuptools_scm]
 write_to = "src/mplstyles_seaborn/_version.py"
+version_scheme = "python-simplified-semver"
+local_scheme = "no-local-version"
+fallback_version = "0.0.0"
