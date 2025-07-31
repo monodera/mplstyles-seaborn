@@ -39,6 +39,12 @@ jobs:
           uv sync --extra test --group dev
           uv run pytest tests/ --cov=src/mplstyles_seaborn --cov-report=term-missing
 
+      - name: Show version information
+        run: |
+          echo "Git describe: $(git describe --tags --always --dirty)"
+          echo "Git tag: $(git describe --tags --exact-match 2>/dev/null || echo 'No exact tag match')"
+          uv run python -c "import setuptools_scm; print('setuptools-scm version:', setuptools_scm.get_version())"
+
       - name: Build release distributions
         run: |
           uv run python -m build
@@ -72,6 +78,9 @@ jobs:
 
       - name: Publish release distributions to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          print-hash: true
+          verbose: true
 
   testpypi-publish:
     runs-on: ubuntu-latest
@@ -95,3 +104,5 @@ jobs:
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
           repository-url: https://test.pypi.org/legacy/
+          print-hash: true
+          verbose: true
